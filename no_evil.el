@@ -56,8 +56,6 @@
 (setq global-mark-ring-max 10)
 (setq set-mark-command-repeat-pop t)
 
-(setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend company-preview-if-just-one-frontend company-echo-metadata-frontend))
-
 (after! company
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.15))
@@ -78,3 +76,7 @@
     (msc/revert-buffer-noconfirm)
     )
   (define-key ruby-mode-map (kbd "C-)") #'rubo_current))
+
+(map! :after yasnippet
+      :map yas-keymap
+      "<tab>" 'yas-next-field)
