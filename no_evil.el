@@ -21,6 +21,9 @@
 (map! "M-2" #'er/expand-region)
 (map! "C-u" #'undo)
 (map! "C-c s c" #'avy-goto-char-2)
+(map! "<C-return>" #'+company/complete)
+(map! "<C-M-return>" #'company-yasnippet)
+(map! "<C-;>" #'+company/dabbrev)
 
 ;; Custom Projectile Keybindings
 (map! "C-c p w" #'projectile-run-shell)
@@ -47,9 +50,8 @@
 
 (map! :after company
       :map company-active-map
-      "C-S-o" nil
-      "C-n" nil
-      "C-o" nil
+      "C-n" #'company-select-next
+      "C-p" #'company-select-previous
       "<tab>" #'yas-expand)
 
 (setq mark-ring-max 10)
@@ -57,6 +59,10 @@
 (setq set-mark-command-repeat-pop t)
 
 (after! company
+  (defadvice! +company--abort-previous-a (&rest _)
+    :before #'company-begin-backend
+    (company-abort))
+
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.15))
 
