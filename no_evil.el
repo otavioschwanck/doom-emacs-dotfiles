@@ -60,7 +60,7 @@
 
 (after! company
   (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0))
+  (setq company-idle-delay 0.15))
 
 (after! ruby-mode
   (defun msc/revert-buffer-noconfirm ()
