@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: wh
+# key: wh
+# --
+where(${field}: ${value})

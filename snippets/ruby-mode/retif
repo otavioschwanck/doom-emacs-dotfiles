@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: retif
+# key: retif
+# --
+return ${item}if ${condition}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: retun
+# key: retun
+# --
+return ${item}unless ${condition}
