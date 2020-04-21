@@ -76,4 +76,5 @@
                    (concat "bundle exec rubocop -a "
                            (shell-quote-argument (buffer-file-name)))))
     (msc/revert-buffer-noconfirm)
-    ))
+    )
+  (define-key ruby-mode-map (kbd "C-)") #'rubo_current))
