@@ -13,7 +13,6 @@
 (global-set-key (kbd "C-S-o") (kbd "C-p C-e C-m"))
 (global-set-key (kbd "C-S-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "C-c C-j") 'join-line)
-(global-set-key (kbd "C-c C-j") 'join-line)
 (global-set-key (kbd "C-ç") (kbd "C-1 C-x s"))
 
 (define-key ruby-mode-map (kbd "C-t") #'projectile-rails-find-current-test)
