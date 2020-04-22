@@ -20,9 +20,8 @@
 (map! "M-2" #'er/expand-region)
 (map! "C-u" #'undo)
 (map! "C-c s c" #'avy-goto-char-2)
-(map! "<C-return>" #'+company/complete)
+(map! "<C-return>" #'+company/dabbrev)
 (map! "<C-M-return>" #'company-yasnippet)
-(map! "C-i" #'+company/dabbrev)
 
 ;; Custom Projectile Keybindings
 (map! "C-c p w" #'projectile-run-shell)
