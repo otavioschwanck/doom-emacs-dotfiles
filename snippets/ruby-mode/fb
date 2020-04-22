@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: fb
-# key: fb
+# name: find_by(column: value)
 # --
 find_by(${column}: ${value})

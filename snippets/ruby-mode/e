@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
-# name: e
+# name: variable = value
 # --
 ${1:variable} = ${2:value}

@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: wh
-# key: wh
+# name: where(field: value)
 # --
 where(${field}: ${value})

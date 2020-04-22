@@ -83,6 +83,11 @@
     )
   (define-key ruby-mode-map (kbd "C-)") #'rubo_current))
 
+(defun yas-next-and-close-company ()
+  (interactive)
+  (company-abort)
+  (yas-next-field))
+
 (map! :after yasnippet
       :map yas-keymap
-      "<tab>" 'yas-next-field)
+      "<tab>" 'yas-next-and-close-company)
