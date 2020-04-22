@@ -22,7 +22,7 @@
 (map! "C-c s c" #'avy-goto-char-2)
 (map! "<C-return>" #'+company/complete)
 (map! "<C-M-return>" #'company-yasnippet)
-(map! "<C-;>" #'+company/dabbrev)
+(map! "C-i" #'+company/dabbrev)
 
 ;; Custom Projectile Keybindings
 (map! "C-c p w" #'projectile-run-shell)
