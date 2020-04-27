@@ -38,12 +38,6 @@
 
 (setq display-line-numbers-type t)
 
-(map! :map ruby-mode-map
-      "C-M-k" #'ruby-beginning-of-block
-      "C-M-j" #'ruby-end-of-block)
-
-(map! :n "C-<SPC>" #'er/expand-region)
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
