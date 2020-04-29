@@ -23,7 +23,7 @@
 (map! "<C-return>" #'+company/dabbrev)
 (map! "<C-M-return>" #'company-yasnippet)
 
-(define-key org-mode-map (kbd "C-c l <return>") #'+org/dwim-at-point)
+;; (define-key org-mode-map (kbd "C-c l <return>") #'+org/dwim-at-point)
 
 ;; Custom Projectile Keybindings
 (map! "C-c p w" #'projectile-run-shell)
