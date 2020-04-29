@@ -153,5 +153,5 @@
 
 (map! :leader "f i" #'indent-whole-buffer)
 
-(load "~/.doom.d/no_evil.el")
-;; (load "~/.doom.d/with_evil.el")
+;; (load "~/.doom.d/no_evil.el")
+(load "~/.doom.d/with_evil.el")
