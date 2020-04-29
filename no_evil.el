@@ -72,16 +72,7 @@
     (interactive)
     (revert-buffer nil t))
 
-  (defun rubo_current ()
-    "RUBOCOP ON CURRENT_FILE."
-    (interactive)
-    (save-buffer)
-    (message "%s" (shell-command-to-string
-                   (concat "bundle exec rubocop -a "
-                           (shell-quote-argument (buffer-file-name)))))
-    (msc/revert-buffer-noconfirm)
-    )
-  (define-key ruby-mode-map (kbd "C-)") #'rubo_current))
+  (define-key ruby-mode-map (kbd "C-)") #'rubocop-on-current-file))
 
 (defun yas-next-and-close-company ()
   (interactive)

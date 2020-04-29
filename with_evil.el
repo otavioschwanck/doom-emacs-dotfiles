@@ -37,3 +37,7 @@
 (map! :after yasnippet
       :map yas-keymap
       "<tab>" 'yas-next-and-close-company)
+
+(map! :mode ruby-mode-map :leader "=" #'rubocop-on-current-file)
+
+(map! :leader "-" #'indent-whole-buffer)

@@ -59,8 +59,11 @@
 (after! web-mode
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
-  )
+  (setq web-mode-markup-indent-offset 2))
+
+(after! js2-mode
+  (setq js-indent-level 2)
+  (setq indent-tabs-mode nil))
 
 ;; Spotify
 (use-package! helm-spotify-plus
@@ -150,6 +153,16 @@
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max))
   )
+
+(defun rubocop-on-current-file ()
+  "RUBOCOP ON CURRENT_FILE."
+  (interactive)
+  (save-buffer)
+  (message "%s" (shell-command-to-string
+                 (concat "bundle exec rubocop -a "
+                         (shell-quote-argument (buffer-file-name)))))
+  (msc/revert-buffer-noconfirm))
+
 
 (map! :leader "f i" #'indent-whole-buffer)
 
