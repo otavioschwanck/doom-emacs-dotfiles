@@ -38,6 +38,23 @@
       :map yas-keymap
       "<tab>" 'yas-next-and-close-company)
 
-(map! :mode ruby-mode-map :leader "=" #'rubocop-on-current-file)
+(after! ruby-mode
+  (defun msc/revert-buffer-noconfirm ()
+    "Call `revert-buffer' with the NOCONFIRM argument set."
+    (interactive)
+    (revert-buffer nil t))
+
+  (defun rubocop-on-current-file ()
+    "RUBOCOP ON CURRENT_FILE."
+    (interactive)
+    (save-buffer)
+    (message "%s" (shell-command-to-string
+                   (concat "bundle exec rubocop -a "
+                           (shell-quote-argument (buffer-file-name)))))
+    (msc/revert-buffer-noconfirm))
+  (map! :mode ruby-mode-map :leader "=" #'rubocop-on-current-file))
 
 (map! :leader "-" #'indent-whole-buffer)
+
+(map! :v "K" #'drag-stuff-up)
+(map! :v "J" #'drag-stuff-down)

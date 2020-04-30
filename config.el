@@ -154,16 +154,6 @@
   (untabify (point-min) (point-max))
   )
 
-(defun rubocop-on-current-file ()
-  "RUBOCOP ON CURRENT_FILE."
-  (interactive)
-  (save-buffer)
-  (message "%s" (shell-command-to-string
-                 (concat "bundle exec rubocop -a "
-                         (shell-quote-argument (buffer-file-name)))))
-  (msc/revert-buffer-noconfirm))
-
-
 (map! :leader "f i" #'indent-whole-buffer)
 
 ;; (load "~/.doom.d/no_evil.el")

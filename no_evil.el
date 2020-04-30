@@ -66,14 +66,6 @@
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.15))
 
-(after! ruby-mode
-  (defun msc/revert-buffer-noconfirm ()
-    "Call `revert-buffer' with the NOCONFIRM argument set."
-    (interactive)
-    (revert-buffer nil t))
-
-  (define-key ruby-mode-map (kbd "C-)") #'rubocop-on-current-file))
-
 (defun yas-next-and-close-company ()
   (interactive)
   (company-abort)
