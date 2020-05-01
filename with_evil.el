@@ -58,3 +58,5 @@
 
 (map! :v "K" #'drag-stuff-up)
 (map! :v "J" #'drag-stuff-down)
+
+(map! :leader "<SPC>" #'counsel-fzf)
