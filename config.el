@@ -139,11 +139,6 @@
   (setq nyan-animate-nyancat t)
   (nyan-mode))
 
-;; C-p when company is active
-(map! :after company
-      :map company-active-map
-      "C-p" nil)
-
 (remove-hook 'text-mode-hook #'visual-line-mode)
 
 (defun indent-whole-buffer ()
