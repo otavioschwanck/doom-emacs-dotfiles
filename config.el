@@ -154,7 +154,16 @@
   (untabify (point-min) (point-max))
   )
 
-(map! :leader "f i" #'indent-whole-buffer)
+(defvar robe-time-to-start 12
+  "Set the time to start robe after starting inf-ruby-console-auto")
+
+(defun rails-better-robe-start ()
+  "Opens robe start silently"
+  (interactive)
+  (save-window-excursion (inf-ruby-console-auto))
+  (run-at-time robe-time-to-start nil #'robe-start))
+
+(add-hook 'ruby-mode-hook 'rails-better-robe-start)
 
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
