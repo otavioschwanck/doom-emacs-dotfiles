@@ -152,11 +152,15 @@
 (defvar robe-time-to-start 12
   "Set the time to start robe after starting inf-ruby-console-auto")
 
+(defvar robe-auto-start-on-ruby-files t
+  "If t, auto-start robe")
+
 (defun rails-better-robe-start ()
   "Opens robe start silently"
   (interactive)
+  (when robe-auto-start-on-ruby-files
   (save-window-excursion (inf-ruby-console-auto))
-  (run-at-time robe-time-to-start nil #'robe-start))
+  (run-at-time robe-time-to-start nil #'robe-start)))
 
 (add-hook 'ruby-mode-hook 'rails-better-robe-start)
 
