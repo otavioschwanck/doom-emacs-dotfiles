@@ -149,7 +149,7 @@
   (untabify (point-min) (point-max))
   )
 
-(defvar robe-time-to-start 12
+(defvar robe-time-to-start 30
   "Set the time to start robe after starting inf-ruby-console-auto")
 
 (defvar robe-auto-start-on-ruby-files t
