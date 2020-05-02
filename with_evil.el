@@ -60,8 +60,6 @@
 (map! :v "J" #'drag-stuff-down)
 (map! :n "0" #'doom/backward-to-bol-or-indent)
 (map! :n "-" #'end-of-line)
-(map! :n "C-h" #'doom/backwad-to-bol-or-indent)
-(map! :n "C-l" #'end-of-line)
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
