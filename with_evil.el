@@ -15,7 +15,11 @@
 
 (map! :i "<C-return>" #'+company/dabbrev)
 
-(map! :leader "ç" 'save-buffer)
+(defun save-all-buffers ()
+  (interactive)
+  (save-some-buffers 0))
+
+(map! :leader "ç" #'save-all-buffers)
 
 (map! :after company
       :map company-active-map
