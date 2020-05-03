@@ -12,6 +12,7 @@
 (map! :nomv "C-e" 'end-of-line)
 
 (map! :n "C-<SPC>" #'er/expand-region)
+(map! "C-e" #'+treemacs/toggle)
 
 (map! :i "<C-return>" #'+company/dabbrev)
 
