@@ -20,7 +20,7 @@
   (interactive)
   (save-some-buffers 0))
 
-(map! :leader "ç" #'save-all-buffers)
+(map! :n "ç" #'save-all-buffers)
 
 (map! :after company
       :map company-active-map
