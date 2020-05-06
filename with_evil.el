@@ -22,6 +22,9 @@
 
 (map! :n "ç" #'save-all-buffers)
 
+(map! :nv "<tab>" #'evil-ex-search-forward)
+(map! :nv "<C-tab>" #'evil-ex-search-backward)
+
 (map! :after company
       :map company-active-map
       "<tab>" #'yas-expand)
