@@ -23,7 +23,10 @@
 (map! :n "ç" #'save-all-buffers)
 
 (map! :nv "<tab>" #'evil-ex-search-forward)
-(map! :nv "<C-tab>" #'evil-ex-search-backward)
+(map! :nv "<backtab>" #'evil-ex-search-backward)
+
+(map! :n "C-," #'previous-buffer)
+(map! :n "C-." #'next-buffer)
 
 (map! :after company
       :map company-active-map
