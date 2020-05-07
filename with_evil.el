@@ -74,4 +74,7 @@
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
-;; (map! :leader "<SPC>" #'counsel-fzf)
+(map! :leader "<SPC>" #'counsel-fzf)
+(map! :leader "k" #'kill-current-buffer)
+(map! :nv "]g" #'git-gutter:next-hunk)
+(map! :nv "[g" #'git-gutter:previous-hunk)
