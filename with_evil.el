@@ -26,7 +26,7 @@
 (map! :nv "<backtab>" #'evil-ex-search-backward)
 
 (map! :n "C-," #'previous-buffer)
-(map! :n "C-." #'next-buffer)
+(map! :n "C-;" #'next-buffer)
 
 (map! :after company
       :map company-active-map
