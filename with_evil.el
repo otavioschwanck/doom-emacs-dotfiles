@@ -74,4 +74,4 @@
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
-(map! :leader "<SPC>" #'counsel-fzf)
+;; (map! :leader "<SPC>" #'counsel-fzf)
