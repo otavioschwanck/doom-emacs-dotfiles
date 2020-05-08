@@ -78,3 +78,5 @@
 (map! :nv "]g" #'git-gutter:next-hunk)
 (map! :nv "[g" #'git-gutter:previous-hunk)
 (map! :nv "C-s" #'evil-avy-goto-char-2)
+
+(map! :i "C-r" #'evil-paste-after)
