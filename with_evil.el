@@ -1,4 +1,4 @@
-;;; ~/.doom.d/with_evil.el -*- lexical-binding: t; -*-
+ ;;; ~/.doom.d/with_evil.el -*- lexical-binding: t; -*-
 
 ;; C-p when company is active
 (map! :after company
@@ -23,7 +23,7 @@
 (map! :n "ç" #'save-all-buffers)
 
 (map! :nv "<tab>" #'evil-ex-search-forward)
-(map! :nv "<backtab>" #'evil-ex-search-backward)
+(map! :nv "<S-tab>" #'evil-ex-search-backward)
 
 (map! :n "C-," #'previous-buffer)
 (map! :n "C-;" #'next-buffer)
