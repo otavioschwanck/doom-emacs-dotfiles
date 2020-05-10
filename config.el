@@ -164,5 +164,18 @@
 
 (add-hook 'ruby-mode-hook 'rails-better-robe-start)
 
+(defun file-path-to-test (filename)
+  (concat
+   (replace-regexp-in-string "/app/" "/spec/" (file-name-directory filename))
+   (file-name-base filename)
+   "_spec."
+   (file-name-extension filename)))
+
+(defun goto-test ()
+  (interactive)
+  (find-file (file-path-to-test buffer-file-name)))
+
+(map! :mode ruby-mode-map :leader "A" 'goto-test)
+
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
