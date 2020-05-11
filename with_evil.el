@@ -81,3 +81,5 @@
 
 (map! :ieg "C-d" #'evil-paste-after)
 (map! :mode ruby-mode-map :leader "a" #'projectile-rails-find-current-test)
+
+(setq read-process-output-max (* 1024 1024))
