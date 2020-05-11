@@ -177,5 +177,7 @@
 
 (map! :mode ruby-mode-map :leader "A" 'goto-test)
 
+(setq read-process-output-max (* 1024 1024))
+
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
