@@ -1,4 +1,4 @@
-;;; ~/.doom.d/with_evil.el -*- lexical-binding: t; -*-
+ ;;; ~/.doom.d/with_evil.el -*- lexical-binding: t; -*-
 
 ;; C-p when company is active
 (map! :after company
@@ -15,7 +15,17 @@
 
 (map! :i "<C-return>" #'+company/dabbrev)
 
-(map! :leader "ç" 'save-buffer)
+(defun save-all-buffers ()
+  (interactive)
+  (save-some-buffers 0))
+
+(map! :n "ç" #'save-all-buffers)
+
+(map! :nv "<tab>" #'evil-ex-search-forward)
+(map! :nv "<C-tab>" #'evil-ex-search-backward)
+
+(map! :n "C-," #'previous-buffer)
+(map! :n "C-;" #'next-buffer)
 
 (map! :after company
       :map company-active-map
@@ -58,11 +68,15 @@
 
 (map! :v "K" #'drag-stuff-up)
 (map! :v "J" #'drag-stuff-down)
-(map! :n "0" #'doom/backward-to-bol-or-indent)
-(map! :n "-" #'end-of-line)
-(map! :n "C-h" #'doom/backwad-to-bol-or-indent)
-(map! :n "C-l" #'end-of-line)
+(map! :nv "0" #'doom/backward-to-bol-or-indent)
+(map! :nv "-" #'end-of-line)
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
 (map! :leader "<SPC>" #'counsel-fzf)
+(map! :leader "k" #'kill-current-buffer)
+(map! :nv "]g" #'git-gutter:next-hunk)
+(map! :nv "[g" #'git-gutter:previous-hunk)
+(map! :nv "C-s" #'evil-avy-goto-char-2)
+
+(map! :ieg "C-d" #'evil-paste-after)

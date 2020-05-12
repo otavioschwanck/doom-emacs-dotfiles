@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-gruvbox)
 ;; (setq doom-theme 'doom-gruvbox)
 ;; (setq doom-theme 'doom-one-light)
 
@@ -139,11 +139,6 @@
   (setq nyan-animate-nyancat t)
   (nyan-mode))
 
-;; C-p when company is active
-(map! :after company
-      :map company-active-map
-      "C-p" nil)
-
 (remove-hook 'text-mode-hook #'visual-line-mode)
 
 (defun indent-whole-buffer ()
@@ -154,16 +149,53 @@
   (untabify (point-min) (point-max))
   )
 
-(defvar robe-time-to-start 12
+(defvar robe-time-to-start 30
   "Set the time to start robe after starting inf-ruby-console-auto")
+
+(defvar robe-auto-start-on-ruby-files t
+  "If t, auto-start robe")
 
 (defun rails-better-robe-start ()
   "Opens robe start silently"
   (interactive)
-  (save-window-excursion (inf-ruby-console-auto))
-  (run-at-time robe-time-to-start nil #'robe-start))
+  (when robe-auto-start-on-ruby-files
+    (save-window-excursion (inf-ruby-console-auto))
+    (run-at-time robe-time-to-start nil #'robe-start)))
 
 (add-hook 'ruby-mode-hook 'rails-better-robe-start)
+
+(defun file-path-to-test (filename)
+  (if (string-match-p "/spec/" filename)
+      (if (string-match-p "/admin/" filename)
+          (concat
+           (replace-regexp-in-string "/spec/controllers/" "/app/" (file-name-directory filename))
+           (singularize-string (replace-regexp-in-string "_controller_spec" "" (file-name-base filename)))
+           "."
+           (file-name-extension filename))
+        (concat
+         (replace-regexp-in-string "/spec/" "/app/" (file-name-directory filename))
+         (replace-regexp-in-string "_spec" "" (file-name-base filename))
+         "."
+         (file-name-extension filename)))
+    (if (string-match-p "/admin/" filename)
+        (concat
+         (replace-regexp-in-string "/app/" "/spec/controllers/" (file-name-directory filename))
+         (pluralize-string (file-name-base filename))
+         "_controller_spec."
+         (file-name-extension filename))
+      (concat
+       (replace-regexp-in-string "/app/" "/spec/" (file-name-directory filename))
+       (file-name-base filename)
+       "_spec."
+       (file-name-extension filename)))))
+
+(defun goto-test ()
+  (interactive)
+  (find-file (file-path-to-test buffer-file-name)))
+
+(map! :mode ruby-mode-map :leader "a" 'goto-test)
+
+(setq read-process-output-max (* 1024 1024))
 
 (load "~/.doom.d/no_evil.el")
 ;; (load "~/.doom.d/with_evil.el")
