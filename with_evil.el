@@ -80,33 +80,13 @@
 (map! :nv "C-s" #'evil-avy-goto-char-2)
 
 (map! :ieg "C-d" #'evil-paste-after)
-(define-minor-mode my-override-mode
-  "Overrides all major and minor mode keys" t)
 
-(defvar my-override-map (make-sparse-keymap "my-override-map")
-  "Override all major and minor mode keys")
+(defun noob ()
+  (interactive)
+  (message "Stop being a noob!"))
 
-(add-to-list 'emulation-mode-map-alists
-  `((my-override-mode . ,my-override-map)))
-
-(define-key my-override-map (kbd "<left>")
-  (lambda ()
-    (interactive)
-    (message "Dont be a noob! Use Vim keys: h for Left")))
-
-(define-key my-override-map (kbd "<right>")
-  (lambda ()
-    (interactive)
-    (message "Dont be a noob! Use Vim keys: l for Right")))
-
-(define-key my-override-map (kbd "<up>")
-  (lambda ()
-    (interactive)
-    (message "Dont be a noob! Use Vim keys: k for Up")))
-
-(define-key my-override-map (kbd "<down>")
-  (lambda ()
-    (interactive)
-    (message "Dont be a noob! Use Vim keys: j for Down")))
-
-(evil-make-intercept-map my-override-map)
+(map! :map general-override-mode-map
+      [left]  #'noob
+      [right] #'noob
+      [up]    #'noob
+      [down]  #'noob)
