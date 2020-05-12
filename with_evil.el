@@ -80,4 +80,3 @@
 (map! :nv "C-s" #'evil-avy-goto-char-2)
 
 (map! :ieg "C-d" #'evil-paste-after)
-(map! :mode ruby-mode-map :leader "a" #'projectile-rails-find-current-test)

@@ -159,23 +159,41 @@
   "Opens robe start silently"
   (interactive)
   (when robe-auto-start-on-ruby-files
-  (save-window-excursion (inf-ruby-console-auto))
-  (run-at-time robe-time-to-start nil #'robe-start)))
+    (save-window-excursion (inf-ruby-console-auto))
+    (run-at-time robe-time-to-start nil #'robe-start)))
 
 (add-hook 'ruby-mode-hook 'rails-better-robe-start)
 
 (defun file-path-to-test (filename)
-  (concat
-   (replace-regexp-in-string "/app/" "/spec/" (file-name-directory filename))
-   (file-name-base filename)
-   "_spec."
-   (file-name-extension filename)))
+  (if (string-match-p "/spec/" filename)
+      (if (string-match-p "/admin/" filename)
+          (concat
+           (replace-regexp-in-string "/spec/controllers/" "/app/" (file-name-directory filename))
+           (singularize-string (replace-regexp-in-string "_controller_spec" "" (file-name-base filename)))
+           "."
+           (file-name-extension filename))
+        (concat
+         (replace-regexp-in-string "/spec/" "/app/" (file-name-directory filename))
+         (replace-regexp-in-string "_spec" "" (file-name-base filename))
+         "."
+         (file-name-extension filename)))
+    (if (string-match-p "/admin/" filename)
+        (concat
+         (replace-regexp-in-string "/app/" "/spec/controllers/" (file-name-directory filename))
+         (pluralize-string (file-name-base filename))
+         "_controller_spec."
+         (file-name-extension filename))
+      (concat
+       (replace-regexp-in-string "/app/" "/spec/" (file-name-directory filename))
+       (file-name-base filename)
+       "_spec."
+       (file-name-extension filename)))))
 
 (defun goto-test ()
   (interactive)
   (find-file (file-path-to-test buffer-file-name)))
 
-(map! :mode ruby-mode-map :leader "A" 'goto-test)
+(map! :mode ruby-mode-map :leader "a" 'goto-test)
 
 (setq read-process-output-max (* 1024 1024))
 

@@ -54,3 +54,4 @@
 (package! string-inflection)
 (package! nyan-mode)
 (package! multiple-cursors)
+(package! plural)
