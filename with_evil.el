@@ -83,10 +83,16 @@
 
 (defun noob ()
   (interactive)
-  (message "Stop being a noob!"))
+  (message "Eu to te vendo o demonio! Use CAPS para sair e movimentar.  Treine para sair e entrar rapidamente do insert mode com a, i, A, I c ci C"))
 
-(map! :map general-override-mode-map
+(map! :map (ruby-mode-map rspec-mode-map yaml-mode-map)
       [left]  #'noob
       [right] #'noob
       [up]    #'noob
       [down]  #'noob)
+
+(map! :map (ruby-mode-map rspec-mode-map yaml-mode-map)
+      :n [left]  #'noob
+      :n [right] #'noob
+      :n [up]    #'noob
+      :n [down]  #'noob)
