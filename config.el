@@ -197,5 +197,10 @@
 
 (setq read-process-output-max (* 1024 1024))
 
+(setq auto-insert-query nil)
+(after! projectile-rails
+  (add-hook 'projectile-rails-mode-hook #'auto-insert-mode))
+
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
+
