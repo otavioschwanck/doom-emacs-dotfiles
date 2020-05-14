@@ -79,7 +79,7 @@
 (map! :nv "[g" #'git-gutter:previous-hunk)
 (map! :nv "C-s" #'evil-avy-goto-char-2)
 
-(map! :ieg "C-d" #'evil-paste-after)
+(map! :ieg "C-q" #'evil-paste-after)
 
 (defun noob ()
   (interactive)
