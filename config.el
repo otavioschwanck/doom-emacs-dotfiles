@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-city-lights)
 ;; (setq doom-theme 'doom-gruvbox)
 ;; (setq doom-theme 'doom-one-light)
 
@@ -196,10 +196,6 @@
 (map! :mode ruby-mode-map :leader "a" 'goto-test)
 
 (setq read-process-output-max (* 1024 1024))
-
-(setq auto-insert-query nil)
-(after! projectile-rails
-  (add-hook 'projectile-rails-mode-hook #'auto-insert-mode))
 
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
