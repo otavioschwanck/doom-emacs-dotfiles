@@ -3,4 +3,4 @@
 # key: rescr
 # --
 rescue StandardError => e
-  Rollbar.error(e)
+  Rollbar.error(e, ${${item}: ${value}})
