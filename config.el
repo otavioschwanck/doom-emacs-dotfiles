@@ -204,6 +204,7 @@
 (map! :mode ruby-mode-map :leader "A" 'goto-test-and-vsplit)
 
 (setq read-process-output-max (* 1024 1024))
+(map! :mode shell-mode-map :leader "l" 'comint-clear-buffer)
 
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
