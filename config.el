@@ -188,11 +188,19 @@
        "_spec."
        (file-name-extension filename)))))
 
+(defun goto-test-and-vsplit ()
+  (interactive)
+  (delete-other-windows)
+  (evil-window-vsplit)
+  (evil-window-right 1)
+  (find-file (file-path-to-test buffer-file-name)))
+
 (defun goto-test ()
   (interactive)
   (find-file (file-path-to-test buffer-file-name)))
 
 (map! :mode ruby-mode-map :leader "a" 'goto-test)
+(map! :mode ruby-mode-map :leader "A" 'goto-test-and-vsplit)
 
 (setq read-process-output-max (* 1024 1024))
 
