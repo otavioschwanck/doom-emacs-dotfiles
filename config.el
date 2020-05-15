@@ -190,10 +190,11 @@
 
 (defun goto-test-and-vsplit ()
   (interactive)
+  (if (string-match-p "/spec/" buffer-file-name) (find-file (file-path-to-test buffer-file-name)))
   (delete-other-windows)
   (evil-window-vsplit)
   (evil-window-right 1)
-  (find-file (file-path-to-test buffer-file-name)))
+  (if (string-match-p "/app/" buffer-file-name) (find-file (file-path-to-test buffer-file-name))))
 
 (defun goto-test ()
   (interactive)
