@@ -65,6 +65,8 @@
   (map! :mode ruby-mode-map :leader "=" #'rubocop-on-current-file))
 
 (map! :leader "-" #'indent-whole-buffer)
+(global-set-key (kbd "C-j") (kbd "C-M-n"))
+(global-set-key (kbd "C-k") (kbd "C-M-p"))
 
 (map! :v "K" #'drag-stuff-up)
 (map! :v "J" #'drag-stuff-down)
@@ -73,7 +75,6 @@
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
-(map! :leader "<SPC>" #'counsel-fzf)
 (map! :leader "k" #'kill-current-buffer)
 (map! :nv "]g" #'git-gutter:next-hunk)
 (map! :nv "[g" #'git-gutter:previous-hunk)

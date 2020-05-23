@@ -37,7 +37,7 @@
        nav-flash         ; blink the current line after jumpin
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       ;; (popup +defaults +all) ; tame sudden yet inevitable temporary windows
+       (popup +defaults +all) ; tame sudden yet inevitable temporary windows
        ;; pretty-code       ; replace bits of code with pretty symbols
        ;; tabs              ; an tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
@@ -65,7 +65,7 @@
        :emacs
        (dired +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ;;ibuffer         ; interactive buffer management
+       (ibuffer +icons)         ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -125,7 +125,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       javascript          ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp)          ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        ;; latex             ; writing papers in Emacs has never been so fun
@@ -143,6 +143,9 @@
         ;;+jupyter        ; ipython/jupyter support for babel
         ;;+pandoc          ; export-with-pandoc support
         +pomodoro        ; be fruitful with the tomato technique
+        +gnuplot
+        +noter
+        +brain
         +present)        ; using org-mode for presentations
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
