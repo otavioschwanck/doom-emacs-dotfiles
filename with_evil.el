@@ -65,6 +65,8 @@
   (map! :mode ruby-mode-map :leader "=" #'rubocop-on-current-file))
 
 (map! :leader "-" #'indent-whole-buffer)
+(global-set-key (kbd "C-j") (kbd "C-M-n"))
+(global-set-key (kbd "C-k") (kbd "C-M-p"))
 
 (map! :v "K" #'drag-stuff-up)
 (map! :v "J" #'drag-stuff-down)
@@ -73,10 +75,27 @@
 
 (map! :map ruby-mode-map :localleader "S" #'rails-better-robe-start)
 
-(map! :leader "<SPC>" #'counsel-fzf)
 (map! :leader "k" #'kill-current-buffer)
 (map! :nv "]g" #'git-gutter:next-hunk)
 (map! :nv "[g" #'git-gutter:previous-hunk)
 (map! :nv "C-s" #'evil-avy-goto-char-2)
 
-(map! :ieg "C-d" #'evil-paste-after)
+(map! :ieg "C-q" #'evil-paste-after)
+
+(defun noob ()
+  (interactive)
+  (message "Eu to te vendo o demonio! Use CAPS para sair e movimentar.  Treine para sair e entrar rapidamente do insert mode com a, i, A, I c ci C"))
+
+(map! :map (ruby-mode-map rspec-mode-map yaml-mode-map)
+      [left]  #'noob
+      [right] #'noob
+      [up]    #'noob
+      [down]  #'noob)
+
+(map! :map (ruby-mode-map rspec-mode-map yaml-mode-map)
+      :n [left]  #'noob
+      :n [right] #'noob
+      :n [up]    #'noob
+      :n [down]  #'noob)
+
+(map! :mode shell-mode-map :leader "l" 'comint-clear-buffer)

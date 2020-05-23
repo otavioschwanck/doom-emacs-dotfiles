@@ -25,8 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
-;; (setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-molokai)
 ;; (setq doom-theme 'doom-one-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -189,11 +188,20 @@
        "_spec."
        (file-name-extension filename)))))
 
+(defun goto-test-and-vsplit ()
+  (interactive)
+  (if (string-match-p "/spec/" buffer-file-name) (find-file (file-path-to-test buffer-file-name)))
+  (delete-other-windows)
+  (evil-window-vsplit)
+  (evil-window-right 1)
+  (if (string-match-p "/app/" buffer-file-name) (find-file (file-path-to-test buffer-file-name))))
+
 (defun goto-test ()
   (interactive)
   (find-file (file-path-to-test buffer-file-name)))
 
 (map! :mode ruby-mode-map :leader "a" 'goto-test)
+(map! :mode ruby-mode-map :leader "A" 'goto-test-and-vsplit)
 
 (setq read-process-output-max (* 1024 1024))
 
