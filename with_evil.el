@@ -97,3 +97,9 @@
       :n [right] #'noob
       :n [up]    #'noob
       :n [down]  #'noob)
+
+(defadvice! reindent-after-paste (&rest _)
+  :after '(evil-paste-after evil-paste-before)
+  (cl-destructuring-bind (_ _ _ beg end &optional _)
+      evil-last-paste
+    (evil-indent beg end)))
