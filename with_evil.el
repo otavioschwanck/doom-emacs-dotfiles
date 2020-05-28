@@ -34,10 +34,7 @@
 (after! company
   (defadvice! +company--abort-previous-a (&rest _)
     :before #'company-begin-backend
-    (company-abort))
-
-  (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0.15))
+    (company-abort)))
 
 (defun yas-next-and-close-company ()
   (interactive)
@@ -99,3 +96,9 @@
       :n [down]  #'noob)
 
 (map! :mode shell-mode-map :leader "l" 'comint-clear-buffer)
+
+(defadvice! reindent-after-paste (&rest _)
+  :after '(evil-paste-after evil-paste-before)
+  (cl-destructuring-bind (_ _ _ beg end &optional _)
+      evil-last-paste
+    (evil-indent beg end)))
