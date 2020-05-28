@@ -34,10 +34,7 @@
 (after! company
   (defadvice! +company--abort-previous-a (&rest _)
     :before #'company-begin-backend
-    (company-abort))
-
-  (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0.15))
+    (company-abort)))
 
 (defun yas-next-and-close-company ()
   (interactive)
