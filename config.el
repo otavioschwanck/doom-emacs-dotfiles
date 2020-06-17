@@ -19,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Source Code Pro" :size 15))
+;; (setq doom-font (font-spec :family "Source Code Pro" :size 15))
+(setq doom-font (font-spec :family "Fira Mono" :size 15))
 ;; (setq doom-font (font-spec :family "Source Code Pro" :size 15 :weight 'bold))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -206,6 +207,10 @@
 (setq read-process-output-max (* 1024 1024))
 (map! :mode shell-mode-map :leader "l" 'comint-clear-buffer)
 
+(setq gdscript-godot-executable "/usr/bin/godot3")
+
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(ruby-reek)))
+
 ;; (load "~/.doom.d/no_evil.el")
 (load "~/.doom.d/with_evil.el")
-

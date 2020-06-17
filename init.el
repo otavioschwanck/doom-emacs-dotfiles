@@ -22,7 +22,7 @@
        (company)           ; the ultimate code completion backend
        helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy +icons +fuzzy +prescient)               ; a search engine for love and life
+       (ivy +childframe +icons +fuzzy +prescient)               ; a search engine for love and life
 
        :ui
        ;; deft              ; notational velocity for Emacs
@@ -110,7 +110,7 @@
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       (csharp +unity)            ; unity, .NET, and mono shenanigans
+       ;;(csharp +unity)            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
@@ -120,6 +120,7 @@
        ;;faust             ; dsp, but you get to keep your soul
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       (gdscript +lsp)
        ;;go                ; the hipster dialect
        ;;(haskell +dante)  ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
