@@ -80,15 +80,15 @@
         ))
 
 ;; Magit fetch when select a project
-(after! projectile
-  (defun projectile-git-fetch (_project)
-    (magit-status)
-    (if (fboundp 'magit-fetch-from-upstream)
-        (call-interactively #'magit-fetch-from-upstream)
-      (call-interactively #'magit-fetch-current)))
+;; (after! projectile
+;;   (defun projectile-git-fetch (_project)
+;;     (magit-status)
+;;     (if (fboundp 'magit-fetch-from-upstream)
+;;         (call-interactively #'magit-fetch-from-upstream)
+;;       (call-interactively #'magit-fetch-current)))
 
-  (setq +workspaces-switch-project-function #'projectile-git-fetch)
-  )
+;;   (setq +workspaces-switch-project-function #'projectile-git-fetch)
+;;   )
 
 ;; jj to escape evil, when you ever typed jj ?
 (setq-default evil-escape-key-sequence "jj")
