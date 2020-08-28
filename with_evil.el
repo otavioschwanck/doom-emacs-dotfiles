@@ -32,6 +32,10 @@
       "<tab>" #'yas-expand)
 
 (after! company
+  (setq company-dabbrev-downcase 0)
+  (setq company-idle-delay 0))
+
+(after! company
   (defadvice! +company--abort-previous-a (&rest _)
     :before #'company-begin-backend
     (company-abort)))

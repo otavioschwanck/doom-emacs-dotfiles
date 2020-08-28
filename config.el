@@ -26,8 +26,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-molokai)
-;; (setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -152,7 +151,7 @@
 (defvar robe-time-to-start 30
   "Set the time to start robe after starting inf-ruby-console-auto")
 
-(defvar robe-auto-start-on-ruby-files t
+(defvar robe-auto-start-on-ruby-files nil
   "If t, auto-start robe")
 
 (defun rails-better-robe-start ()
